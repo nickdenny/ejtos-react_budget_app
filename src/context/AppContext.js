@@ -6,6 +6,12 @@ export const AppReducer = (state, action) => {
     switch (action.type) {
         case 'ADD_EXPENSE':
             let total_budget = 0;
+            if(isNaN(action.payload.cost)) {
+                alert("Please enter a number");
+                return {
+                    ...state
+                }
+            }
             total_budget = state.expenses.reduce(
                 (previousExp, currentExp) => {
                     return previousExp + currentExp.cost
