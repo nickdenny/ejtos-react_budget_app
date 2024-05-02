@@ -1,12 +1,16 @@
 import React, { useContext, useState, setState } from 'react';
 import { AppContext } from '../context/AppContext';
 const Currency = () => {
-    const { currency } = useContext(AppContext);
+    const { dispatch,currency  } = useContext(AppContext);
+    //const { currency } = useContext(AppContext);
     const [newCurrency, setNewCurrency] = useState(currency);
     const handleCurrencyChange = (e) => {
         setNewCurrency(e.target.value);
-        setState({currency: e.target.value});
-        
+        //setState({currency: e.target.value});
+        dispatch({
+            type: 'CHG_CURRENCY',
+            payload: e.target.value,
+        });
     }
     return (
         <div>
