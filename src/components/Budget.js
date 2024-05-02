@@ -4,6 +4,7 @@
         const { budget } = useContext(AppContext);
         const { expenses } = useContext(AppContext);
         const [newBudget, setNewBudget] = useState(budget);
+        const { currency } = useContext(AppContext);
         const handleBudgetChange = (event) => {
             if (event.target.value < expenses) {
                 alert("You cannot reduce the budget value lower than the spending")
@@ -12,7 +13,7 @@
         }
         return (
     <div className='alert alert-secondary'>
-    <span>Budget: £{budget}</span>
+    <span>Budget: {currency}{budget}</span>
     <input type="number" step="10" value={newBudget} onChange={handleBudgetChange}></input>
     </div>
         );
