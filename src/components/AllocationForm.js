@@ -8,7 +8,7 @@
         const { currency } = useContext(AppContext);
         const submitEvent = () => {
                 if(cost > remaining) {
-                    alert("The value cannot exceed remaining funds  £"+remaining);
+                    alert("The value cannot exceed remaining funds  "+remaining);
                     setCost("");
                     return;
                 }
